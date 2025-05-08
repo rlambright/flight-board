@@ -1,0 +1,10 @@
+{
+  "name": "Flight Board",
+  "content_in_root": false,
+  "domain": "flight_board",
+  "documentation": "https://github.com/yourusername/flight-board",
+  "issue_tracker": "https://github.com/yourusername/flight-board/issues",
+  "version": "0.1.0",
+  "requirements": [],
+  "render_readme": true
+}

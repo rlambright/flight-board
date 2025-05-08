@@ -1,0 +1,16 @@
+{
+  "title": "Flight Board",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Flight Board",
+        "description": "Enter AeroAPI details and airport.",
+        "data": {
+          "api_key": "AeroAPI Key",
+          "airport": "Airport Code (e.g., DAB)",
+          "update_interval": "Update Interval (minutes)"
+        }
+      }
+    }
+  }
+}

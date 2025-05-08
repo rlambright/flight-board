@@ -1,0 +1,10 @@
+{
+  "domain": "flight_board",
+  "name": "Flight Board",
+  "version": "0.1.1",
+  "config_flow": true,
+  "documentation": "https://github.com/yourusername/flight-board",
+  "requirements": ["requests"],
+  "dependencies": [],
+  "codeowners": ["@yourgithubusername"]
+}
