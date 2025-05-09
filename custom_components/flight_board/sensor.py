@@ -3,7 +3,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from .const import DOMAIN, CONF_API_KEY, CONF_AIRPORT, CONF_UPDATE_INTERVAL
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 import logging
 
 _LOGGER = logging.getLogger(__name__)
@@ -20,10 +20,14 @@ class FlightBoardSensor(Entity):
     def __init__(self, api_key, airport):
         self._attr_name = "Flight Board"
         self._attr_unique_id = "flight_board_sensor"
-        self._attr_native_value = None
+        self._attr_native_value = "Initializing..."
         self.api_key = api_key
         self.airport = airport
         self._attr_extra_state_attributes = {}
+
+    @property
+    def should_poll(self):
+        return True
 
     def _fetch_flights(self, flight_type):
         url = f"https://aeroapi.flightaware.com/aeroapi/airports/{self.airport}/flights/{flight_type}"
@@ -44,7 +48,8 @@ class FlightBoardSensor(Entity):
         arrivals = self._fetch_flights("arrivals")
         departures = self._fetch_flights("departures")
 
-        # Simplify structure for frontend later
+        _LOGGER.info(f"Fetched {len(arrivals)} arrivals and {len(departures)} departures.")
+
         all_flights = arrivals[:3] + departures[:3]
         all_flights.sort(key=lambda f: f.get("scheduled_out") or f.get("scheduled_in") or "")
 
