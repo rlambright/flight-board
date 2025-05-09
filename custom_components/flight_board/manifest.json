@@ -6,5 +6,5 @@
   "documentation": "https://github.com/yourusername/flight-board",
   "requirements": ["requests"],
   "dependencies": [],
-  "codeowners": ["@yourgithubusername"]
+  "codeowners": ["rlambright"]
 }
